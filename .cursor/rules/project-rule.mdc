@@ -1,0 +1,15 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+
+always use pnpm.
+
+always make modular components.
+
+always make dynamic component so it looks good in mobile view.
+
+Always use global styling and make variable of everything for keeping the UI consistent.
+
+Make global variable for both tailwind and css.

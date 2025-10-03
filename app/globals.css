@@ -1,0 +1,391 @@
+@import "tailwindcss";
+
+:root {
+  /* Base text/background (kept for compatibility) */
+  --background: #f8fafc;
+  --foreground: #1a1a1a;
+
+  /* Brand color system */
+  --color-primary: #448c6c;
+  /* Primary Green */
+  --color-primary-dark: #3b7b5d;
+  /* Primary Dark */
+  --color-green-dark: #448c6c;
+  /* Green Dark */
+  --color-primary-light: #f0faf5;
+  /* Light Green - Made Lighter */
+  /* CTA tuned greens (slightly muted) */
+  --color-primary-cta: #16a34a;
+  /* green-600 */
+  --color-primary-cta-dark: #15803d;
+  /* green-700 */
+  --color-secondary: #0077ff;
+  /* Secondary Blue */
+  --color-warning: #ffb800;
+  /* Warning */
+  --color-error: #e63946;
+  /* Error */
+  --color-success: #22c55e;
+  /* Success */
+  --color-bg: #f8fafc;
+  /* Background */
+  --color-surface: #ffffff;
+  /* Surface */
+  --color-text: #1a1a1a;
+  /* Text Primary */
+  --color-text-secondary: #6b7280;
+  /* Text Secondary */
+  --color-heading: #0b1215;
+  /* Heading Color */
+  --color-border: #f3f4f6;
+  /* Light gray borders */
+  --color-disabled: #9ca3af;
+  /* Disabled */
+
+  /* Motion */
+  --splash-wave-a: rgba(27, 175, 93, 0.1);
+  --splash-wave-b: rgba(27, 175, 93, 0.06);
+  --splash-wave-c: rgba(27, 175, 93, 0.04);
+
+  /* Onboarding solid palette */
+  --onb1-bg: #059669;
+  /* emerald-600 */
+  --onb2-bg: #65a30d;
+  /* lime-600 */
+  --onb3-bg: #c026d3;
+  /* fuchsia-600 */
+  --onb4-bg: #4f46e5;
+  /* indigo-600 */
+
+  --onb1-badge: #6ee7b7;
+  /* emerald-300 */
+  --onb2-badge: #bef264;
+  /* lime-300 */
+  --onb3-badge: #f0abfc;
+  /* fuchsia-300 */
+  --onb4-badge: #a5b4fc;
+  /* indigo-300 */
+
+  --onb1-ring: #a7f3d0;
+  /* emerald-200 */
+  --onb2-ring: #d9f99d;
+  /* lime-200 */
+  --onb3-ring: #f5d0fe;
+  /* fuchsia-200 */
+  --onb4-ring: #c7d2fe;
+  /* indigo-200 */
+
+  /* Story viewer palette */
+  --story-overlay: rgba(10, 15, 20, 0.55);
+  /* Light beige for all stories */
+  --story-light-beige: #fdf8f3;
+  /* Light green for all stories */
+  --story-light-green: linear-gradient(180deg, #f0faf5 0%, #dcfce7 100%);
+  /* Greens */
+  --story-green: linear-gradient(180deg, #10b981 0%, #059669 100%);
+  --story-green-dark: linear-gradient(180deg, #059669 0%, #047857 100%);
+  --story-green-deep: linear-gradient(180deg, #047857 0%, #065f46 100%);
+  /* Purples */
+  --story-purple: linear-gradient(180deg, #a855f7 0%, #7c3aed 100%);
+  --story-purple-dark: linear-gradient(180deg, #7c3aed 0%, #6d28d9 100%);
+  --story-purple-deep: linear-gradient(180deg, #6d28d9 0%, #5b21b6 100%);
+  /* Indigo */
+  --story-indigo: linear-gradient(180deg, #6366f1 0%, #4f46e5 100%);
+  --story-indigo-dark: linear-gradient(180deg, #4f46e5 0%, #4338ca 100%);
+  --story-indigo-deep: linear-gradient(180deg, #4338ca 0%, #3730a3 100%);
+  /* Amber */
+  --story-amber: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+  --story-amber-dark: linear-gradient(180deg, #d97706 0%, #b45309 100%);
+  --story-amber-deep: linear-gradient(180deg, #b45309 0%, #92400e 100%);
+
+  /* Landing page theme overrides */
+  --bg: #004225;
+  /* DarkGreen */
+  --bg-2: #0a5031;
+  /* Slightly lighter shade */
+  --text: #f4f6f5;
+  /* near-white */
+  --muted: #c9d3cf;
+  --gold: #d4af37;
+  /* Golden */
+  --gold-strong: #c6a129;
+  --gold-weak: rgba(212, 175, 55, 0.12);
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+@theme inline {
+  /* Map CSS variables to Tailwind tokens */
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-text);
+
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-green-dark: var(--color-green-dark);
+  --color-primary-light: var(--color-primary-light);
+  --color-secondary: var(--color-secondary);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
+  --color-success: var(--color-success);
+  --color-surface: var(--color-surface);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-heading: var(--color-heading);
+  --color-border: var(--color-border);
+  --color-disabled: var(--color-disabled);
+
+  --font-sans: var(--font-poppins);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Force light theme only for now */
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Hide scrollbar but keep functionality */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  /* Marquee utilities */
+  .marquee-track {
+    display: flex;
+    white-space: nowrap;
+    will-change: transform;
+  }
+
+  .marquee-gradient-mask {
+    mask-image: linear-gradient(to right,
+        transparent,
+        black 8%,
+        black 92%,
+        transparent);
+    -webkit-mask-image: linear-gradient(to right,
+        transparent,
+        black 8%,
+        black 92%,
+        transparent);
+  }
+
+  .animate-marquee-slow {
+    animation: marquee-x 25s linear infinite;
+  }
+
+  .animate-marquee-medium {
+    animation: marquee-x 20s linear infinite;
+  }
+
+  .animate-marquee-fast {
+    animation: marquee-x 12s linear infinite;
+  }
+}
+
+/* Splash background waves */
+.wave-bg {
+  background:
+    radial-gradient(1200px 600px at 50% 120%,
+      var(--splash-wave-a),
+      transparent 60%),
+    radial-gradient(1000px 500px at 0% 20%,
+      var(--splash-wave-b),
+      transparent 60%),
+    radial-gradient(900px 400px at 100% 0%,
+      var(--splash-wave-c),
+      transparent 60%),
+    var(--color-surface);
+  animation: waveFlow 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes waveFlow {
+  0% {
+    transform: translateY(0px) scale(1);
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(-6px) scale(1.01);
+    filter: hue-rotate(-4deg);
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-200%);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+}
+
+.animate-shine {
+  animation: shine 3s infinite;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  15% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  85% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-in-out {
+  animation: fadeInOut 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Continuous horizontal marquee keyframes */
+@keyframes marquee-x {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Story bar fill animation: from 0% width to 100% */
+@keyframes storyProgress {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.animate-story-progress {
+  animation: storyProgress 6s linear forwards;
+}
+
+@keyframes storyFill {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.story-progress-bar {
+  animation: storyFill linear forwards;
+}
+
+/* Arrow motion for onboarding first slide */
+@keyframes arrowRight {
+  0% {
+    opacity: 0.9;
+    transform: translateX(0) scale(1);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateX(120px) scale(1.05);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(120px) scale(1.05);
+  }
+}
+
+.animate-arrow-right {
+  animation: arrowRight 1.6s ease-in-out infinite;
+}
+
+/* Subtle left-right drift for pointing effect */
+@keyframes driftLR {
+  0% {
+    transform: translateX(-6px);
+  }
+
+  50% {
+    transform: translateX(6px);
+  }
+
+  100% {
+    transform: translateX(-6px);
+  }
+}
+
+.animate-drift-lr-slow {
+  animation: driftLR 2.8s ease-in-out infinite;
+}
+
+/* Yellow glow utility */
+.glow-yellow {
+  filter: drop-shadow(0 0 10px rgba(250, 204, 21, 0.9)) drop-shadow(0 0 18px rgba(250, 204, 21, 0.6));
+}
+
+/* Grow from base (scaleY with transform-origin bottom) */
+@keyframes growFromBase {
+  0% {
+    transform: scaleY(0.6);
+    opacity: 0.75;
+  }
+
+  60% {
+    transform: scaleY(1.06);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.animate-grow-base {
+  transform-origin: bottom center;
+  animation: growFromBase 1.6s ease-out both;
+}
